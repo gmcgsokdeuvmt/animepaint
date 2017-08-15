@@ -1,0 +1,93 @@
+* {
+	margin:0;
+	padding:0;
+}
+#menu {
+	position:absolute;
+	left : 10px;
+	top: 500px;
+}
+#slider {
+	width: 600px;
+}
+#myCanvas {
+	position: absolute;
+	left: 10px;
+	top : 10px;
+	width: 640px;
+	height: 480px;
+	background-color: white;
+    border: 1px solid black;
+}
+#colorPalet {
+	position: absolute;
+	left: 670px;
+	top : 15px;
+	border : 1px solid black;
+}
+#colorPalet div {
+	width: 32px;
+	height : 32px;
+	border:1px solid gray;
+}
+#canvases {
+    position: absolute;
+    overflow: scroll;
+    width: 200px;
+    height : 480px;
+	left: 730px;
+    top: 10px;
+	border : 1px solid black;
+}
+#canvases div{
+    width: 160px;
+	height : 120px;
+    margin: 5px;
+	border:1px solid gray;
+}
+#canvases img{
+    width: 160px;
+	height : 120px;
+}
+#canvases-tool {
+    position: absolute;
+	left: 730px;
+    top: 500px;
+	border : 1px solid black;
+}
+#drop_zone {
+    position: absolute;
+	left: 730px;
+    top: 550px;
+	border : 1px solid black;
+}
+#list {
+    position: absolute;
+	left: 730px;
+    top: 570px;
+	border : 1px solid black;
+}
+#black {
+	background-color : #000000;
+}
+#blue {
+	background-color : #0000ff;
+}
+#red {
+	background-color : #ff0000;
+}
+#magenta {
+	background-color : #ff00ff;
+}
+#green {
+	background-color : #00ff00;
+}
+#cyan {
+	background-color : #00ffff;
+}
+#yellow {
+	background-color : #ffff00;
+}
+#white {
+	background-color : #ffffff;
+}

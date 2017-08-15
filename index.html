@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>アニメペイント</title>
+        <link rel="stylesheet" href="main.css" type="text/css" media="all">
+        <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+        <script type="text/javascript" src="gif.js"></script>
+        <script type="text/javascript" src="draw.js"></script>
+    </head>
+    <body>
+    <canvas id="myCanvas" width="640" height="480">
+        HTML5　Canvasに対応したブラウザーを使用してください。
+    </canvas>
+    <div id="menu">
+        <button onclick="saveData()">保存</button>
+        <button onclick="saveAndAppend()">保存して追加</button>
+        <button onclick="clearCanvas()">全消し</button>
+    </div>
+    <div id="colorPalet">
+        <div id="black"></div>
+        <div id="blue"></div>
+        <div id="red"></div>
+        <div id="magenta"></div>
+        <div id="green"></div>
+        <div id="cyan"></div>
+        <div id="yellow"></div>
+        <div id="white"></div>
+    </div>
+    <div id="canvases">
+    </div>
+    <div id="canvases-tool">
+        <button onclick="getPrevCanvas()">上</button>
+        <button onclick="getNextCanvas()">下</button>
+        <button onclick="setNextCanvas()">追加</button>
+        <button onclick="deleteCurrentCanvas()">消去</button>
+        <button onclick="generateGIF()">GIF生成</button>
+        fps
+        <input id="fps" type="text" name="fps" size="5" maxlength="30">
+        秒
+    </div>
+    <div id="drop_zone">画像をここにドラッグして追加</div>
+
+
+</body>
+</html>
