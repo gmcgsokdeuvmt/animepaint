@@ -47,9 +47,17 @@ function generateGIF() {
     gif.on('finished', function(blob) {
 
         var reader = new FileReader();
-        reader.onload = function(e) {window.open(e.target.result);}
+        reader.onload = function(e) {
+            var a = document.createElement('a');
+            a.download = 'download.gif';
+            a.target   = '_blank';
+            a.href = e.target.result;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
         reader.readAsDataURL(blob);
-
+        
         console.log('finished');
         
     });
