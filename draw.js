@@ -46,17 +46,35 @@ function generateGIF() {
     }
     gif.on('finished', function(blob) {
 
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            var a = document.createElement('a');
-            a.download = 'download.gif';
-            a.target   = '_blank';
-            a.href = e.target.result;
+        var a = document.createElement('a');
+        a.download = name;
+        a.target   = '_blank';
+        
+        if (window.navigator.msSaveBlob) {
+            // for IE
+            window.navigator.msSaveBlob(blob, name)
+        }
+        else if (window.URL && window.URL.createObjectURL) {
+            // for Firefox
+            a.href = window.URL.createObjectURL(blob);
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
         }
-        reader.readAsDataURL(blob);
+        else if (window.webkitURL && window.webkitURL.createObject) {
+            // for Chrome
+            a.href = window.webkitURL.createObjectURL(blob);
+            a.click();
+        }
+        else {
+            // for Safari
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                window.open('data:image/png;base64,' + window.Base64.encode(e), '_blank');
+            }
+            reader.readAsDataURL(blob);
+            
+        }
         
         console.log('finished');
         
