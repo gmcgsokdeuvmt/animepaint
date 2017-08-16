@@ -53,7 +53,7 @@ function generateGIF() {
         if (window.navigator.msSaveBlob) {
             // for IE
             window.navigator.msSaveBlob(blob, name)
-        }
+        }/*
         else if (window.URL && window.URL.createObjectURL) {
             // for Firefox
             a.href = window.URL.createObjectURL(blob);
@@ -65,12 +65,13 @@ function generateGIF() {
             // for Chrome
             a.href = window.webkitURL.createObjectURL(blob);
             a.click();
-        }
+        }*/
         else {
             // for Safari
             var reader = new FileReader();
             reader.onload = function(e) {
-                window.open('data:image/png;base64,' + window.Base64.encode(e), '_blank');
+                console.log(e.target.result)
+                window.open(e.target.result, '_blank');
             }
             reader.readAsDataURL(blob);
             
