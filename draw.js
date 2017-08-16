@@ -45,15 +45,17 @@ function generateGIF() {
         gif.addFrame(canvases[key],{delay: 1000/fps});        
     }
     gif.on('finished', function(blob) {
-        
-        var url = URL.createObjectURL(blob);
-        console.log(url);
-        window.open(url);
-        /*
         var reader = new FileReader();
-        reader.onload = function(e) {window.open(e.target.result);}
-        reader.readAsDataURL(blob);*/
+        reader.onload = function(e) {
 
+            const a = document.createElement('a');
+            a.href = e.target.result;
+            a.download = 'download.gif';
+            a.target = '_blank';
+
+            a.click();
+        }
+        reader.readAsDataURL(blob);
         console.log('finished');
         
     });
